@@ -72,6 +72,10 @@ p {
 .contacts-item :focus {
   color: var(--accent-color);
 }
+.nav-link,
+.contacts-link {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .nav-link.current {
   color: var(--accent-color);
 }
@@ -105,6 +109,7 @@ p {
 .contacts-item {
   display: flex;
 }
+
 /* Оформление svg-иконок в навигации header */
 .contacts-link :hover.contacts-svg,
 .contacts-link :focus.contacts-svg {
@@ -158,6 +163,7 @@ p {
   text-decoration: none;
   position: relative;
 }
+
 /* Оформление svg-иконок в навигации footer */
 .footer-link-icons {
   display: flex;
@@ -170,6 +176,7 @@ p {
   justify-content: center;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-icons {
   fill: white;
@@ -206,6 +213,7 @@ p {
   padding: 10px 32px;
   min-width: 200px;
   margin-top: 30px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-button :focus,
 .hero-button :hover {
@@ -224,6 +232,9 @@ p {
   display: inline-block;
   min-width: 73px;
   text-align: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-item :focus,
 .filter-item :hover {
@@ -278,6 +289,7 @@ p {
 .advantages-list {
   display: flex;
 }
+
 /*Оформление svg-иконок в advantages */
 .advantages-container {
   background-color: #f5f4fa;
@@ -318,20 +330,23 @@ p {
   justify-content: center;
   align-items: center;
   position: absolute;
-  width: 370px;
+  z-index: 0;
+  width: 100%;
   height: 70px;
   background: rgba(47, 48, 58, 0.8);
   bottom: 0;
-  right: 0;
+  left: 0;
 }
 .box-item {
   font-weight: 700;
-  font-size: 16px;
-  line-height: 1.2;
+  font-size: 14px;
+  line-height: 1.14;
   color: #ffffff;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  text-align: center;
 }
+
 /* Оформление секции "Наша команда"*/
 .second-heading,
 .second-heading-team {
@@ -393,11 +408,15 @@ p {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icons-social {
   width: 20px;
   height: 20px;
   fill: #afb1b8;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icons-link:hover .icons-social,
 .icons-link:focus .icons-social {
@@ -424,16 +443,19 @@ p {
   border: 1px solid #afb1b8;
   justify-content: center;
   border-radius: 5%;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-item:not(:last-child) {
   margin-right: 30px;
 }
-
 .clients-icons {
   display: flex;
   width: 106px;
   height: 60px;
   fill: #afb1b8;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-link:hover,
 .clients-link:focus {
@@ -443,16 +465,20 @@ p {
 .clients-link:focus .clients-icons {
   fill: var(--accent-color);
 }
+
 /* Оформление модального окна */
 .backdroup {
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdroup.is-hidden {
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
@@ -461,7 +487,7 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 528px;
   height: 581px;
   background-color: var(--second-color-white);
@@ -476,6 +502,8 @@ p {
   width: 18px;
   height: 18px;
   fill: #212121;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-modal {
   position: absolute;
@@ -489,6 +517,8 @@ p {
   box-sizing: border-box;
   border-radius: 50%;
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-modal:focus,
 .button-modal:hover {
@@ -517,7 +547,6 @@ p {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
-
 .portfolio-title {
   font-weight: 700;
   font-size: 18px;
@@ -535,6 +564,7 @@ p {
 .portfolio-link {
   text-decoration: none;
   display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter {
   margin-bottom: 50px;
@@ -554,7 +584,6 @@ p {
 .portfolio-item:nth-last-child(-n + 3) {
   margin-bottom: 0;
 }
-
 .box-gallery {
   position: relative;
   overflow: hidden;
@@ -567,7 +596,7 @@ p {
   width: 100%;
   height: 100%;
   transform: translateY(100%);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: var(--accent-color);
 }
 .overlay-text {
